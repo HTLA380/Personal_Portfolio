@@ -1,0 +1,48 @@
+@supports (-webkit-text-stroke: 1px black) {
+  .text-stroke-black {
+    -webkit-text-stroke: 1px #bdbbb6;
+    -webkit-text-fill-color: #0a0a0a;
+  }
+  .stroke-cyan {
+    -webkit-text-stroke: 1px #dc4492;
+    -webkit-text-fill-color: #ffedd5;
+  }
+}
+
+.text-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.text-effect .overlay {
+  position: absolute;
+  inset: 0;
+  background-color: #0a0a0a;
+  border-left: 2px solid #fff;
+  transform: translateX(0%);
+  animation: translateOverlay 3s forwards cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+@keyframes translateOverlay {
+  to {
+    transform: translateX(101%);
+  }
+}
+
+.animate-image {
+  -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 0 100%, 100% 100%, 0 100%);
+  animation: animate-image 3s 3s forwards cubic-bezier(0.85, 0, 0.15, 1);
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+@keyframes animate-image {
+  to {
+    -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+    clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+  }
+}
