@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;600&family=Righteous&family=Roboto+Condensed&family=Genos&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Righteous&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap");
 
 @tailwind base;
@@ -10,7 +10,7 @@ body,
 #root,
 .app {
   min-height: 100%;
-  background-color: #0a0a0a;
+  scroll-behavior: smooth;
 }
 
 ::selection {

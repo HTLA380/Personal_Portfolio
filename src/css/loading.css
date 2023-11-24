@@ -100,8 +100,6 @@
 }
 .loading-window {
   border-radius: 6px;
-  border: 3px solid #ffe4e1;
-  color: #ffe4e1;
   height: 200px;
   left: 50%;
   margin-left: -150px;
@@ -138,7 +136,7 @@
   position: absolute;
   width: 11px;
   height: 1px;
-  background: #ffe4e1;
+  background: #daadad;
   animation: strikes 0.2s linear infinite;
 }
 .car .strike2 {
@@ -160,7 +158,7 @@
 .car-detail {
   position: absolute;
   display: block;
-  background: #ffe4e1;
+  background: #daadad;
   animation: speed 0.5s linear infinite;
 }
 .car-detail.spoiler {
@@ -169,8 +167,8 @@
   top: 7px;
   background: none;
   border: 20px solid rgba(0, 0, 0, 0);
-  border-bottom: 8px solid #ffe4e1;
-  border-left: 20px solid #ffe4e1;
+  border-bottom: 8px solid #daadad;
+  border-left: 20px solid #daadad;
 }
 .car-detail.back {
   height: 20px;
@@ -184,7 +182,7 @@
   left: 12px;
   border-top-left-radius: 30px;
   border-top-right-radius: 45px 40px;
-  border: 4px solid #ffe4e1;
+  border: 4px solid #daadad;
   background: none;
   box-sizing: border-box;
 }
@@ -212,32 +210,32 @@
   background: linear-gradient(
       45deg,
       transparent 45%,
-      #ffe4e1 46%,
-      #ffe4e1 54%,
+      #daadad 46%,
+      #daadad 54%,
       transparent 55%
     ),
     linear-gradient(
       -45deg,
       transparent 45%,
-      #ffe4e1 46%,
-      #ffe4e1 54%,
+      #daadad 46%,
+      #daadad 54%,
       transparent 55%
     ),
     linear-gradient(
       90deg,
       transparent 45%,
-      #ffe4e1 46%,
-      #ffe4e1 54%,
+      #daadad 46%,
+      #daadad 54%,
       transparent 55%
     ),
     linear-gradient(
       0deg,
       transparent 45%,
-      #ffe4e1 46%,
-      #ffe4e1 54%,
+      #daadad 46%,
+      #daadad 54%,
       transparent 55%
     ),
-    radial-gradient(#ffe4e1 29%, transparent 30%, transparent 50%, #ffe4e1 51%),
+    radial-gradient(#daadad 29%, transparent 30%, transparent 50%, #daadad 51%),
     #333;
   animation-name: spin;
 }

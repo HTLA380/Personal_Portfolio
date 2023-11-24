@@ -1,34 +1,44 @@
 import Landing from "../scenes/Landing";
-import DesktopSkills from "../scenes/DesktopSkills";
-import Projects from "../scenes/Projects";
+import DesktopSkills from "../scenes/Skills/DesktopSkills";
+import MobileSkills from "../scenes/skills/MobileSkills";
 import Contact from "../scenes/Contact";
 import Footer from "../scenes/Footer";
-import wave from "../assets/wave.svg";
-import AboutMe from "../scenes/AboutMe";
+import DesktopAboutMe from "../scenes/aboutMe/DesktopAboutMe";
+import useMediaQuery from "../hooks/useMediaQuery";
+import MobileAboutMe from "../scenes/aboutMe/MobileAboutMe";
+import Navbar from "../scenes/Navbar";
+import SocialMedia from "../scenes/SocialMedia";
+import Transition from "../components/animation/Transition";
+import DesktopProject from "../scenes/project/DesktopProject";
+import MobileProject from "../scenes/project/MobileProject";
 
 function Pages() {
+  const isDesktop = useMediaQuery("(min-width: 48rem)");
   return (
     <>
+      <Navbar />
+      <SocialMedia />
       <div
         id="home"
-        className="w-5/6 max-w-screen-smd mx-auto flex min-h-screen justify-center items-center md:items-start md:pt-56 relative scroll-effect">
+        className="w-5/6 max-w-screen-smd mx-auto flex min-h-screen justify-center items-center md:items-start md:pt-56 relative scroll-effect border-b border-b-gray-700">
         <Landing />
       </div>
-      <div className="w-5/6 max-w-screen-smd mx-auto h-full relative">
-        <AboutMe />
+
+      <div className="w-5/6 max-w-screen-smd mx-auto h-full relative border-b border-b-gray-700">
+        {isDesktop ? <DesktopAboutMe /> : <MobileAboutMe />}
       </div>
-      <div className="w-5/6 max-w-screen-smd mx-auto min-h-full relative">
-        <DesktopSkills />
+      <div className="w-5/6 max-w-screen-smd mx-auto h-full relative border-b border-b-gray-700 ">
+        {isDesktop ? <DesktopSkills /> : <MobileSkills />}
       </div>
-      {/* <div className="w-5/6 max-w-screen-lg md:h-full mx-auto">
-        <Projects />
+      <div className="w-5/6 max-w-screen-smd mx-auto h-full relative border-b border-b-gray-700 ">
+        {isDesktop ? <DesktopProject /> : <MobileProject />}
       </div>
-      <div className="w-5/6 max-w-screen-lg mx-auto md:h-full">
+      <div className="w-5/6 max-w-screen-smd mx-auto md:h-full">
         <Contact />
-      </div> */}
-      {/* <Footer /> */}
+      </div>
+      <Footer />
     </>
   );
 }
 
-export default Pages;
+export default Transition(Pages);

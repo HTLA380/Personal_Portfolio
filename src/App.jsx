@@ -1,19 +1,48 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./Pages/Home";
-import ProjectPage from "./Pages/ProjectPage";
+import { Routes, Route, useLocation } from "react-router-dom";
 import "./css/util.css";
-import Navbar from "./scenes/Navbar";
+import "./css/animation.css";
+import "./css/loading.css";
+import { AnimatePresence } from "framer-motion";
+import { Suspense, lazy } from "react";
+import PageLoading from "./components/animation/PageLoading";
+
+const Home = lazy(() => import("./Pages/Home"));
+const ProjectPage = lazy(() => import("./Pages/Projects/ProjectPage"));
+const PDFViewer = lazy(() => import("./Pages/PDFViewer"));
 
 function App() {
+  const location = useLocation();
+
   return (
-    <div className="app relative">
-      <Navbar />
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" id="project-page" element={<ProjectPage />} />
+    <div className="app relative bg-flat-black">
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route
+            index
+            element={
+              <Suspense fallback={<PageLoading />}>
+                <Home />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/projects"
+            element={
+              <Suspense fallback={<PageLoading />}>
+                <ProjectPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/resume"
+            element={
+              <Suspense fallback={<PageLoading />}>
+                <PDFViewer />
+              </Suspense>
+            }
+          />
         </Routes>
-      </Router>
+      </AnimatePresence>
     </div>
   );
 }

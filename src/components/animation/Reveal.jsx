@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export const Reveal = ({ children, width = "fit-content" }) => {
+export const Reveal = ({ children, width = "fit-content", delay = 1 }) => {
   return (
     <div style={{ position: "relative", width, overflow: "hidden" }}>
       {children}
@@ -13,9 +13,10 @@ export const Reveal = ({ children, width = "fit-content" }) => {
         }}
         initial="hidden"
         whileInView="visible"
+        viewport={{ once: true }}
         transition={{
           duration: 2,
-          delay: 0.25,
+          delay: delay,
           ease: [0.85, 0, 0.15, 1],
         }}></motion.div>
     </div>

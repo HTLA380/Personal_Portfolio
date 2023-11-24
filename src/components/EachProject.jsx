@@ -1,80 +1,65 @@
-import {motion} from "framer-motion";
-import {HiOutlineExternalLink} from "react-icons/hi";
-import {FiGithub} from "react-icons/fi";
+import { FiGithub } from "react-icons/fi";
+import { GoProjectSymlink } from "react-icons/go";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import LazyImage from "./animation/LazyImage";
 
-export const EachProject = ({
-  title,
-  img,
-  content,
-  techs,
-  order,
-  webSiteLink,
-  source,
-}) => {
+export const EachProject = ({ title, img, techs, webSiteLink, source }) => {
+  const [isActive, setIsActive] = useState(false);
   return (
-    <div
-      className={`relative md:min-h-[360px] lg:min-h-[400px] flex flex-col md:flex-row justify-center items-center`}>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{once: true, amount: 0.5}}
-        transition={{delay: 0.2, duration: 0.5}}
-        variants={{
-          hidden: {opacity: 0, x: order ? -50 : 50},
-          visible: {opacity: 1, x: 0},
-        }}
-        className={`max-w-[500px] ${order ? "md:order-0" : "md:order-2"}`}>
-        <img
-          src={`../assets/${img}.jpeg`}
-          className="aspect-square object-cover"
-          alt={img}
-        />
-      </motion.div>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{once: true, amount: 0.5}}
-        transition={{delay: 0.4, duration: 0.5}}
-        variants={{
-          hidden: {opacity: 0, x: order ? 50 : -50},
-          visible: {opacity: 1, x: 0},
-        }}
-        className={`w-full max-w-[500px] md:mx-10 lg:mx-20 z-10 md:p-5 mt-6 md:mt-0 text-white`}>
-        <h1 className="text-xl sm:text-3xl font-opensans">{title}</h1>
-        <p className="my-4 md:my-8 text-md sm:text-lg md:text-xl font-thin">
-          {content}
-        </p>
-        <div className="mt-2 mb-5">
-          <h3 className="font-opensans mb-2 text-lg">Technologies:</h3>
-          <ul>
-            {techs.map((tech) => (
+    <motion.div
+      viewport={{ once: true, amount: 0.5 }}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+      }}
+      transition={{ duration: 1.5 }}
+      className="text-center w-full relative max-w-md mx-auto sm:max-w-none cursor-pointer border  border-gray-500">
+      <LazyImage
+        src={img}
+        alt={title}
+        className="w-full h-full aspect-4/3 object-cover"
+      />
+      <div
+        className={`absolute flex inset-0 bg-flat-black duration-300 items-center justify-center flex-col p-2 ${
+          isActive ? "opacity-95" : "opacity-0"
+        }`}
+        onClick={() => setIsActive((prev) => !prev)}>
+        <h1 className="text-xl lg:text-2xl text-white font-playfair max-w-xs">
+          {title}
+        </h1>
+
+        <ul className="mt-3 max-w-xs">
+          {techs.map((eachTech) => {
+            return (
               <li
-                className="list-disc list-item uppercase ml-5 font-mono"
-                key={tech}>
-                {tech}
+                key={eachTech}
+                className="uppercase text-xs font-dmSans text-flat-black font-semibold inline-block px-2 rounded bg-pink m-1">
+                {eachTech}
               </li>
-            ))}
-          </ul>
-        </div>
-        <div className="flex items-center gap-5">
+            );
+          })}
+        </ul>
+
+        <div className="flex items-center justify-center mt-3">
           <a
-            rel="noopener noreferrer"
             target="_blank"
             href={webSiteLink}
-            className="hover:bg-red transition duration-200 rounded bg-slate-700 py-2 px-5 text-white
-           flex align-baseline max-w-[220px]">
-            <HiOutlineExternalLink className="text-2xl mr-2" />
-            Visit The Website
+            className={`mx-1 flex bg-light-blue text-flat-black font-dmSans font-semibold text-sm hover:brightness-75 items-center justify-center gap-2 px-3 py-1 rounded ${
+              isActive ? "pointer-events-auto" : "pointer-events-none"
+            }`}>
+            <GoProjectSymlink size={20} /> <p>Visit</p>
           </a>
           <a
-            rel="noopener noreferrer"
             target="_blank"
             href={source}
-            className="hover:text-red transition duration-200 rounded text-white text-2xl">
+            className={`text-white mx-1 inline-block text-2xl ${
+              isActive ? "pointer-events-auto" : "pointer-events-none"
+            }`}>
             <FiGithub />
           </a>
         </div>
-      </motion.div>
-    </div>
+      </div>
+    </motion.div>
   );
 };
