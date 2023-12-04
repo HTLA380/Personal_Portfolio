@@ -23,6 +23,7 @@ const MobileProject = () => {
           src={ProjectImg5}
           alt="Recipe App Using React JS"
           className="w-full max-w-xs h-full object-cover"
+          loading="lazy"
         />
         <div className="max-w-xs mt-3">
           <h1 className="text-xl font-playfair text-white">
@@ -36,14 +37,9 @@ const MobileProject = () => {
           <div className="mt-2 mb-2 flex items-baseline justify-between sm:block">
             <ul className="mt-2 order-2">
               <li className="uppercase text-xs font-dmSans text-flat-black font-semibold inline-block px-1 bg-light-blue m-1">
-                HTML
-              </li>
-              <li className="uppercase text-xs font-dmSans text-flat-black font-semibold inline-block px-1 bg-light-blue m-1">
-                Css
-              </li>
-              <li className="uppercase text-xs font-dmSans text-flat-black font-semibold inline-block px-1 bg-light-blue m-1">
                 React
               </li>
+
               {/* <li className="uppercase text-sm font-dmSans text-flat-black font-semibold inline-block px-1 sm:px-2 rounded bg-light-blue m-1">
                 styled-components
               </li>

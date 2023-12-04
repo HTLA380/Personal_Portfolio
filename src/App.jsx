@@ -5,6 +5,7 @@ import "./css/loading.css";
 import { AnimatePresence } from "framer-motion";
 import { Suspense, lazy } from "react";
 import PageLoading from "./components/animation/PageLoading";
+import PageNotFound from "./Pages/PageNotFound";
 
 const Home = lazy(() => import("./Pages/Home"));
 const ProjectPage = lazy(() => import("./Pages/Projects/ProjectPage"));
@@ -38,6 +39,14 @@ function App() {
             element={
               <Suspense fallback={<PageLoading />}>
                 <PDFViewer />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/*"
+            element={
+              <Suspense fallback={<PageLoading />}>
+                <PageNotFound />
               </Suspense>
             }
           />

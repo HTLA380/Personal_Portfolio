@@ -3,6 +3,7 @@ import guitarImg from "../../assets/aboutme/guitar.svg";
 import data from "./data.json";
 
 import { FaChevronRight } from "react-icons/fa";
+import { FaMusic } from "react-icons/fa";
 import AnimatedDiv from "../../components/animation/AnimateDiv";
 import SectionTitle from "../../components/SectionTitle";
 
@@ -45,12 +46,13 @@ const DesktopAboutMe = () => {
       />
 
       <div className="w-full flex justify-between items-start mt-10">
-        <span className="w-1/3 text-white h-[30rem] flex items-center justify-center">
+        <span className="w-1/3 text-white h-[30rem] flex items-center justify-center relative">
           <img
             src={guitarImg}
             alt="guitar"
             className="select-none w-full"
             draggable="false"
+            loading="lazy"
           />
         </span>
         <div className="w-3/5">

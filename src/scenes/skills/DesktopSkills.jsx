@@ -55,6 +55,7 @@ const EachSkillCard = ({ data }) => {
         alt={data.title}
         className="w-1/3 max-w-[3rem] mx-auto select-none brightness-75"
         draggable="false"
+        loading="lazy"
       />
       <p className="text-gray-400 font-semibold text-center mt-2 text-base">
         {data.title}

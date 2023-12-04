@@ -95,6 +95,7 @@ const Landing = () => {
             alt="Htet Aung Lin"
             className="select-none w-full"
             draggable="false"
+            loading="lazy"
           />
         </span>
       </div>

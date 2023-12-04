@@ -23,6 +23,7 @@ const DesktopProject = () => {
           src={ProjectImg5}
           alt="Recipe App Using React JS"
           className="w-1/2 h-full object-cover"
+          loading="lazy"
         />
         <div className="w-1/2 mt-3">
           <h1 className="text-2xl lg:text-3xl font-playfair text-white">
