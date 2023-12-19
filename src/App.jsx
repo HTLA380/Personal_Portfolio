@@ -1,4 +1,5 @@
 import { Routes, Route, useLocation } from "react-router-dom";
+import "./css/fonts.css";
 import "./css/util.css";
 import "./css/animation.css";
 import "./css/loading.css";
