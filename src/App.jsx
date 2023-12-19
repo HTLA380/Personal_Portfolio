@@ -4,7 +4,7 @@ import "./css/util.css";
 import "./css/animation.css";
 import "./css/loading.css";
 import { AnimatePresence } from "framer-motion";
-import { Suspense, lazy, useEffect } from "react";
+import { Suspense, lazy } from "react";
 import PageLoading from "./components/animation/PageLoading";
 import PageNotFound from "./Pages/PageNotFound";
 
